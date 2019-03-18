@@ -4,6 +4,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
+    client.channels.get("557348230245908482").send("Loaded! :)")
 });
 
 
