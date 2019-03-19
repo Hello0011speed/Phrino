@@ -4,9 +4,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-    const embed = new RichEmbed()
-      .setTitle('Loaded... ✅')
-    client.channels.get("557348230245908482").send(embed);
+    client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
 });
 
 
