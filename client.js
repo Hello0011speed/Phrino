@@ -5,12 +5,7 @@ client.on('ready', () => {
     console.log('I am ready!');
     client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
 });
-client.on('guildCreate', (guildCreate) => {
-    let embed = new Discord.RichEmbed()
-        .setTitle('New server:')
-        .setDescription('');
-client.channels.get("557646693907300352").send(embed)
-});
+
     
 client.on('message', (message) => {
     if(message.content.startsWith("!!dm ")) {
