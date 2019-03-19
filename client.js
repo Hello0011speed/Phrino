@@ -21,7 +21,7 @@ client.on('message', (message) => {
     }
 });
 client.on('message', (message) => {
-    if(message.content.startsWith("!!info")) {
+    if(message.content.startsWith("!!info ")) {
         let userToknow = message.mentions.users.first();
         let id = message.userToknow.id
         let created = message.userToknow.createdAt
