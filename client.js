@@ -1,6 +1,16 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
+
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -20,18 +30,7 @@ client.on('message', (message) => {
         userToSend.send(messageToSend);
     }
 });
-client.on('message', (message) => {
-    if(message.content.startsWith("!!info ")) {
-        let userToknow = message.mentions.users.first();
-        let id = message.userToknow.id
-        let created = message.userToknow.createdAt
-        let embed = new Discord.RichEmbed()
-            .setTitle("TEST")
-            .setDescription(id)
 
-        channel.send(embed);
-    }
-});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
