@@ -27,7 +27,7 @@ client.on('message', (message) => {
     if(message.author.id !== config.ownerID) return message.channel.sendMessage("This command is only allowed for the Owner of Phrino!");
         client.destroy();
         client.login(process.env.BOT_TOKEN);
-})
+});
 
 
 // THIS  MUST  BE  THIS  WAY
