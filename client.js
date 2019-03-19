@@ -10,13 +10,12 @@ client.on('ready', () => {
 
     
 client.on('message', (message) => {
-    if(message.content.startsWith("!!dm ")) {
-        let error = new Discord.RichEmbed()
-            .setDescription('This command is only allowed to Bot Owner.. :C')
-            .setColor('#3fd378')
-            .setTimestamp();
-            
+    if(message.content.startsWith("!!dm ")) {           
     if(message.author.id !== config.ownerID) return message.channel.sendMessage(error);
+      let error = new Discord.RichEmbed()
+         .setDescription('This command is only allowed to Bot Owner.. :C')
+         .setColor('#3fd378')
+         .setTimestamp();
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
