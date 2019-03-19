@@ -26,11 +26,8 @@ client.on('message', (message) => {
         let id = message.userToknow.id
         let created = message.userToknow.createdAt
         let embed = new Discord.RichEmbed()
-            .setTitle("Information")
-            .addField(`User ID:`, `id`, false)
-            .addField(`User created at:`, `created`, false)
-        
-        
+            .setTitle("TEST")
+            .setDescription(id)
 
         channel.send(embed);
     }
