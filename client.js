@@ -9,7 +9,6 @@ client.on('guildCreate', (guildCreate) => {
     let embed = new Discord.RichEmbed()
         .setTitle('New server:')
         .setDescription('')
-        .addField('\u200B', '\u200B', false);
 client.channels.get("557646693907300352").send(embed)
 }
 });
