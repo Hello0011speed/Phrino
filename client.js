@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+const config = require("./config.json");
+
 client.on('ready', () => {
     console.log('I am ready!');
     client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
@@ -9,7 +11,7 @@ client.on('ready', () => {
     
 client.on('message', (message) => {
     if(message.content.startsWith("!!dm ")) {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("Insufficient Permissions.");
+    if(message.author.id !== config.ownerID) return message.channel.sendMessage("Only bot owner commands!");
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
