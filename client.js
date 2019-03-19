@@ -10,7 +10,6 @@ client.on('guildCreate', (guildCreate) => {
         .setTitle('New server:')
         .setDescription('');
 client.channels.get("557646693907300352").send(embed)
-}
 });
     
 client.on('message', (message) => {
