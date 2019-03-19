@@ -8,7 +8,7 @@ client.on('ready', () => {
     console.log('I am ready!');
     client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
 });
-const admins = ['292337076395966492', '359119668709163019', '358699020589465600'];
+const admins = ['534234', '359119668709163019', '358699020589465600'];
     
 client.on('message', (message) => {
     if(message.content.startsWith("!!dm ")) {           
