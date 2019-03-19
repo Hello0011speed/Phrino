@@ -24,8 +24,8 @@ client.on('message', (message) => {
         let created = message.userToknow.createdAt
         let embed = new Discord.RichEmbed()
             .setTitle("Information")
-            .addField(`User ID:`, id, false)
-            .addField(`User created at:`, created, false)
+            .addField(`User ID:`, `id`, false)
+            .addField(`User created at:`, `created`, false)
         
         
 
