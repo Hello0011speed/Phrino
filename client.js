@@ -7,17 +7,7 @@ client.on('ready', () => {
     client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
 });
 
-const init = async () => {
 
-  // Here we load **commands** into memory, as a collection, so they're accessible
-  // here and everywhere else.
-  const cmdFiles = await readdir("./commands/");
-  client.logger.log(`Loading a total of ${cmdFiles.length} commands.`);
-  cmdFiles.forEach(f => {
-    if (!f.endsWith(".js")) return;
-    const response = client.loadCommand(f);
-    if (response) console.log(response);
-  });
     
 client.on('message', (message) => {
     if(message.content.startsWith("!!dm ")) {
