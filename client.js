@@ -3,19 +3,19 @@ const client = new Discord.Client();
 const fs = require('fs');
 
 
-client.commands = new Discord.Collections();
+//client.commands = new Discord.Collections();
 
-fs.readdir('./commands/', (err, files) => {
-    if(err) console.error(err);
-    
-    const jsfiles = files.filter(f => f.split('.').pop() === ('js');
-       if (jsfiles.lenght <= 0) { return console.log('No command found...')}
-    else { console.log(jsfiles.lenght + (' command found!') }
-                       
-    jsfiles.forEach((f, i) => {
-        const cmds = require('./commands/${f}');
-    })
-})
+//fs.readdir('./commands/', (err, files) => {
+//    if(err) console.error(err);
+//    
+//    const jsfiles = files.filter(f => f.split('.').pop() === ('js');
+//       if (jsfiles.lenght <= 0) { return console.log('No command found...')}
+//    else { console.log(jsfiles.lenght + (' command found!') }
+//                       
+//    jsfiles.forEach((f, i) => {
+//        const cmds = require('./commands/${f}');
+//    })
+//})
 
 
 const config = require("./config.json");
