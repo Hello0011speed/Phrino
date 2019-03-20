@@ -34,7 +34,7 @@ const embed = new Discord.RichEmbed()
     .setColor('#d81111');
     
 client.on('message', (message) => {
-    if(message.content.startsWith("--dm ")) {   
+    if(message.content.startsWith(".dm ")) {   
     if (!admins.includes(message.author.id)) return message.channel.send("This command is only availeable for Premium Members and Staff. :wave:");
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
