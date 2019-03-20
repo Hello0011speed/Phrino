@@ -21,7 +21,7 @@ const client = new Discord.Client();
 
 
 const config = require("./config.json");
-const adminID = ["", "359119668709163019", "", "443159617028227083"];
+const adminID = ["", "", "", ""];
 
 
 client.on('ready', () => {
@@ -44,7 +44,6 @@ client.on('message', (message) => {
         userToSend.send(messageToSend);
     }
 });
-
 
 //const admins = ['id1', 'id2'];
 //if (!admins.includes(/*author's id*/)) return;
