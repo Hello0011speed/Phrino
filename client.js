@@ -45,7 +45,7 @@ client.on('message', (message) => {
             .addField(`Messaged by:`, `${message.author}`, false);
         
         client.channels.get("558064435449823242").send(embed);
-        message.mentions.users.first.send(message.content.split(" ").slice(2).join(" "));
+        userToSend.send(messageToSend);
     }
 });
 
