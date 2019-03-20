@@ -39,8 +39,12 @@ client.on('message', (message) => {
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
+        let embed = new Discord.RichEmbed()
+            .setTitle("DM Command :sparkles:")
+            .addField(`Message sent to:`, `${userToSend}`, false)
+            .addField(`Messaged by:`, `${message.author}`, false);
         
-
+        client.channels.get("558064435449823242").send(embed);
         userToSend.send(messageToSend);
     }
 });
