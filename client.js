@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const fs = require('fs');
+//const fs = require('fs');
 
 
 //client.commands = new Discord.Collections();
-
+//
 //fs.readdir('./commands/', (err, files) => {
 //    if(err) console.error(err);
 //    
@@ -14,6 +14,8 @@ const fs = require('fs');
 //                       
 //    jsfiles.forEach((f, i) => {
 //        const cmds = require('./commands/${f}');
+//        console.log('Command ${f} loading...');
+//        bot.commands.set(cmds.config.command, cmds)
 //    })
 //})
 
@@ -24,7 +26,7 @@ const adminID = ["", "359119668709163019", "", "443159617028227083"];
 
 client.on('ready', () => {
     console.log('I am ready!');
-    client.channels.get("557348230245908482").send('Loaded.......... xD');
+    client.channels.get("557348230245908482").send('The bot was properly loaded :white_check_mark:');
 });
 const admins = ['292337076395966492', '359119668709163019', '358699020589465600'];
 const embed = new Discord.RichEmbed()
