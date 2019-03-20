@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const config = require("./config.json");
-const adminID = ["358699020589465600", "359119668709163019", "292337076395966492"];
+const adminID = ["358699020589465600", "359119668709163019", "292337076395966492", "443159617028227083"];
 
 client.on('ready', () => {
     console.log('I am ready!');
