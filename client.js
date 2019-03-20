@@ -2,11 +2,15 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const config = require("./config.json");
-const adminID = ["", "359119668709163019", "292337076395966492", "443159617028227083"];
+const adminID = ["", "359119668709163019", "", "443159617028227083"];
+const embedc = new Discord.RichEmbed()
+    .setDescription("The bot was properly loaded ✅")
+    .setColor('#10bc13');
+
 
 client.on('ready', () => {
     console.log('I am ready!');
-    client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
+    client.channels.get("557348230245908482").send(embedc);
 });
 const admins = ['292337076395966492', '359119668709163019', '358699020589465600'];
 const embed = new Discord.RichEmbed()
