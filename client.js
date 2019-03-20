@@ -9,10 +9,13 @@ client.on('ready', () => {
     client.channels.get("557348230245908482").send("The bot was properly loaded ✅");
 });
 const admins = ['292337076395966492', '359119668709163019', '358699020589465600'];
+const embed = new Discord.RichEmbed()
+    .setDescription("This command is only allowed for Phrino admins!")
+    .setColor('#d81111');
     
 client.on('message', (message) => {
     if(message.content.startsWith("!!dm ")) {           
-    if (!admins.includes(message.author.id)) return message.channel.send('This command is only allowed for Phrino admins!');
+    if (!admins.includes(message.author.id)) return message.channel.send(embed);
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
