@@ -41,9 +41,11 @@ client.on('message', (message) => {
         let userToSend = message.mentions.users.first();
         let embed = new Discord.RichEmbed()
             .setTitle("DM Command :sparkles:");
+            .setTitle("DM Command :sparkles:")
+            .setFooter("Thanks for using Phrino!");
             
         
-        client.channels.get("558064435449823242").send(embed);
+        message.channel.send(embed);
         userToSend.send(messageToSend);
     }
 });
