@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+const embed = new Discord.RichEmbed()
+    .setAuthor("Phrino")
+    .setTitle("Test message")
+    .setDescription("this is just a test");
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -19,8 +22,6 @@ client.on('message', (message) => {
     }
 });
 const admins = ['292337076395966492'];
-const embed = new Discord.RichEmbed()
-.setDescription('Hi noob');
 
 client.on('message', (message) => {
     if(message.content.startsWith(".hii")) {   
