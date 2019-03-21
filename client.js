@@ -43,7 +43,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content.startsWith("hii")) {   
-    let embed = new DiscordEmbed()
+    const embed = new DiscordEmbed()
         .setDescription('Hi noob');
 
     client.message.send(embed);
