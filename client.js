@@ -29,7 +29,7 @@ client.on('message', (message) =>{
             .setColor("#E51414")
             .setDescription("Phrino Stats...")
             .addField("Members:", "${mcount} members in total.", true)
-            .addField("Servers:", "${scount} servers in total.", true);
+            .addField("Servers:" + client.user.size, true);
 
   message.channel.send({embed});
     }
