@@ -43,7 +43,7 @@ client.on('message', (message) =>{
 const admins = ['292337076395966492', '359119668709163019', '443159617028227083', '358699020589465600', '469163726336163841', '138289516136890368'];
     
 client.on('message', (message) => {
-    if(message.content.startsWith(".dm ")) {   
+    if(message.content.startsWith(".verify ")) {   
     if (!admins.includes(message.author.id)) return message.channel.send("You are not staff at Phrino servers...");
         const embed = new Discord.RichEmbed()
             .setTitle("Phrino | Verify")
