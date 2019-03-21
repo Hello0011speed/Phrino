@@ -21,10 +21,10 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content.startsWith(".hii")) {   
-    var embed = new DiscordEmbed()
+    var embed = new Discord.RichEmbed()
         .setDescription('Hi noob');
 
-    client.message.send({embed});
+    client.message.send(embed);
     }
 });
 //const admins = ['id1', 'id2'];
