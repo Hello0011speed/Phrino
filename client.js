@@ -1,27 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-//const fs = require('fs');
-
-
-//client.commands = new Discord.Collections();
-//
-//fs.readdir('./commands/', (err, files) => {
-//    if(err) console.error(err);
-//    
-//    const jsfiles = files.filter(f => f.split('.').pop() === ('js');
-//       if (jsfiles.lenght <= 0) { return console.log('No command found...')}
-//    else { console.log(jsfiles.lenght + (' command found!') }
-//                       
-//    jsfiles.forEach((f, i) => {
-//        const cmds = require('./commands/${f}');
-//        console.log('Command ${f} loading...');
-//        bot.commands.set(cmds.config.command, cmds)
-//    })
-//})
-
-
-const config = require("./config.json");
-const adminID = ["", "", "", ""];
 
 
 client.on('ready', () => {
@@ -46,7 +24,7 @@ client.on('message', (message) => {
     var embed = new DiscordEmbed()
         .setDescription('Hi noob');
 
-    client.message.send(embed);
+    client.message.send({embed});
     }
 });
 //const admins = ['id1', 'id2'];
