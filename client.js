@@ -49,13 +49,13 @@ client.on('message', (message) =>{
             .setColor("#E51414")
             .setDescription(message.author + "you are not Phrino staff!");
     if (!admins.includes(message.author.id)) return message.channel.send({embed});
-        const embed1 = new Discord.RichEmbed()
+        const embedd = new Discord.RichEmbed()
             .setTitle("Phrino | Verify")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
             .setDescription("Welcome " + message.author + " you are verified as Phrino Staff!");
 
-  message.channel.send({embed1});
+  message.channel.send({embedd});
     }
 });
 
