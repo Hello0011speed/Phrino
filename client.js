@@ -28,8 +28,8 @@ client.on('message', (message) =>{
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
             .setDescription("Phrino Stats...")
-            .addField("Members:", "${mcount} members in total.", true)
-            .addField("Servers:" + client.user.size, true);
+            .addField("Members: " + client.user.size)
+            .addField("Servers: " + client.guilds.size);
 
   message.channel.send({embed});
     }
