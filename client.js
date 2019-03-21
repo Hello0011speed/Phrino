@@ -36,12 +36,7 @@ client.on('message', (message) => {
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
-        let embed = new Discord.RichEmbed()
-            .setTitle("DM Command :sparkles:")
-            .setFooter("Thanks for using Phrino!");
-            
         
-        message.channel.send(embed);
         userToSend.send(messageToSend);
     }
 });
