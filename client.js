@@ -24,7 +24,7 @@ client.on('message', (message) => {
     var embed = new Discord.RichEmbed()
         .setDescription('Hi noob');
 
-    client.message.send(embed);
+    message.channel.send(embed);
     }
 });
 //const admins = ['id1', 'id2'];
