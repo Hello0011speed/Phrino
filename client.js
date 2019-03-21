@@ -44,13 +44,13 @@ const admins = ['292337076395966492', '359119668709163019', '443159617028227083'
 client.on('message', (message) =>{
     if(message.content.startsWith(".verify")) {
     if (!admins.includes(message.author.id)) return message.channel.send("You are not staff at Phrino servers...");
-        const embedd = new Discord.RichEmbed()
+        const embed = new Discord.RichEmbed()
             .setTitle("Phrino | Verify")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
             .setDescription("Welcome you are verified as Phrino Staff!");
 
-  message.channel.send({embedd});
+  message.channel.send({embed});
     }
 });
 
