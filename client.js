@@ -20,11 +20,16 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) =>{
-    if(message.content.startsWith(".test")) {
+    if(message.content.startsWith(".stats")) {
+        const mcount = client.users.size
+        const scount = client.guilds.size
         const embed = new Discord.RichEmbed()
-            .setTitle("Phrino test")
+            .setTitle("Phrino | Stats")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
-            .setColor("#E51414");
+            .setColor("#E51414")
+            .setDescription("Phrino Stats...")
+            .addField("Members:", "${mcount} members in total.", true)
+            .addField("Servers:", "${scount} servers in total.", true);
 
   message.channel.send({embed});
     }
