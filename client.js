@@ -40,8 +40,8 @@ client.on('message', (message) => {
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
         let embed = new Discord.RichEmbed()
-            .setTitle("DM Command :sparkles:")
-            .addField(`Used by:`, `${message.author}`, false);
+            .setTitle("DM Command :sparkles:");
+            
         
         client.channels.get("558064435449823242").send(embed);
         userToSend.send(messageToSend);
