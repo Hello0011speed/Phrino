@@ -41,6 +41,14 @@ client.on('message', (message) => {
     }
 });
 
+client.on('message', (message) => {
+    if(message.content.startsWith("@Phrino#2372")) {   
+    let embed = new DiscordEmbed()
+        .setDescription('Hi noob');
+
+    client.message.send(embed)
+    }
+});
 //const admins = ['id1', 'id2'];
 //if (!admins.includes(/*author's id*/)) return;
 
