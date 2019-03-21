@@ -44,7 +44,7 @@ client.on('message', (message) => {
             .setFooter("Thanks for using Phrino!");
             
         
-        client.message.channel.send(embed);
+        message.channel.send(embed);
         userToSend.send(messageToSend);
     }
 });
