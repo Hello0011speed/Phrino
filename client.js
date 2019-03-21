@@ -40,11 +40,6 @@ client.on('message', (message) =>{
     }
 });
 const admins = ['292337076395966492', '359119668709163019', '443159617028227083', '358699020589465600', '469163726336163841', '138289516136890368'];
-//const embed = new Discord.RichEmbed()
-//    .setTitle("Phrino | Verify")
-//    .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
-//    .setColor("#E51414")
-//    .setDescription(message.author + "you are not Phrino staff!");
 
 client.on('message', (message) =>{
     if(message.content.startsWith(".verify")) {
