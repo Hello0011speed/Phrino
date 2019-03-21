@@ -42,7 +42,7 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
-    if(message.content.startsWith("@Phrino#2372")) {   
+    if(message.content.startsWith("hii")) {   
     let embed = new DiscordEmbed()
         .setDescription('Hi noob');
 
