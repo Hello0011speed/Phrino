@@ -6,7 +6,7 @@ client.on('ready', () => {
     console.log('I am ready!');
     const embed = new Discord.RichEmbed()
         .setTitle("Phrino Reload...")
-        .setColor("#E51414")
+        .setColor("#21E514")
         .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
         .setDescription("The bot was properly reloaded :white_check_mark:");
     client.channels.get("557348230245908482").send({embed});
