@@ -18,11 +18,14 @@ client.on('message', (message) => {
         userToSend.send(messageToSend);
     }
 });
+const admins = ['292337076395966492'];
+const embed = new Discord.RichEmbed()
+.setDescription('Hi noob');
 
 client.on('message', (message) => {
     if(message.content.startsWith(".hii")) {   
-    const embed = new Discord.RichEmbed()
-        .setDescription('Hi noob');
+    if (!admins.includes(message.author.id)) return message.channel.send("This command is only availeable for Premium Members and Staff. :wave:");
+    message.delete().catch(O_o=>{});
 
     message.channel.send(embed);
     }
