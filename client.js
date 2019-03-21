@@ -21,7 +21,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content.startsWith(".hii")) {   
-    var embed = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
         .setDescription('Hi noob');
 
     message.channel.send(embed);
