@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const embed = new Discord.RichEmbed()
-    .setAuthor("Phrino")
-    .setTitle("Test message")
-    .setDescription("this is just a test");
+
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -21,16 +18,7 @@ client.on('message', (message) => {
         userToSend.send(messageToSend);
     }
 });
-const admins = ['292337076395966492'];
 
-client.on('message', (message) => {
-    if(message.content.startsWith(".hii")) {   
-    if (!admins.includes(message.author.id)) return message.channel.send("This command is only availeable for Premium Members and Staff. :wave:");
-    message.delete().catch(O_o=>{});
-
-    message.channel.send({embed});
-    }
-});
 //const admins = ['id1', 'id2'];
 //if (!admins.includes(/*author's id*/)) return;
 
