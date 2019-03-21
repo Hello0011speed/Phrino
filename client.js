@@ -47,14 +47,14 @@ client.on('message', (message) =>{
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
             .setDescription(message.author + "you are not Phrino staff!");
-    if (!admins.includes(message.author.id)) return message.channel.send("This command is only availeable for Premium Members and Staff. :wave:");
-        const embed = new Discord.RichEmbed()
+    if (!admins.includes(message.author.id)) return message.channel.send({embed});
+        const embed1 = new Discord.RichEmbed()
             .setTitle("Phrino | Verify")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
             .setDescription("Welcome " + message.author + " you are verified as Phrino Staff!");
 
-  message.channel.send({embed});
+  message.channel.send({embed1});
     }
 });
 
