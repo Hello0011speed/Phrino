@@ -27,7 +27,7 @@ client.on('message', (message) => {
     if (!admins.includes(message.author.id)) return message.channel.send("This command is only availeable for Premium Members and Staff. :wave:");
     message.delete().catch(O_o=>{});
 
-    message.channel.send(embed);
+    message.channel.send({embed});
     }
 });
 //const admins = ['id1', 'id2'];
