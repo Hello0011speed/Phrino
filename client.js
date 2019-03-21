@@ -46,7 +46,7 @@ client.on('message', (message) => {
     let embed = new DiscordEmbed()
         .setDescription('Hi noob');
 
-    client.message.send(embed)
+    client.message.send(embed);
     }
 });
 //const admins = ['id1', 'id2'];
