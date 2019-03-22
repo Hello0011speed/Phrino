@@ -45,7 +45,7 @@ client.on('message', (message) => {
         const error = new Discord.RichEmbed()
             .setTitle("Phrino · Verify")
             .setDescription("Verified as Phrino Staff member... :white_check_mark: \n If him/her needs admin to config something or do a check, please give him/her sufficient permission to complete that task. \n If someone abuses admin please join the official server: https://discord.gg/98VwXKU")
-            .setAvatar(message.author.avatarURL)
+            .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setTimestamp()
             .setColor("#E51414");
   message.channel.send({error});
