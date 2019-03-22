@@ -48,7 +48,7 @@ client.on('message', (message) => {
             .setAvatar(message.author.avatarURL)
             .setTimestamp()
             .setColor("#E51414");
-  message.channel.send({embed});
+  message.channel.send({error});
     }
 });
 //const admins = ['id1', 'id2'];
