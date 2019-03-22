@@ -34,7 +34,7 @@ client.on('message', (message) =>{
             .setTitle("Phrino | Stats")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
-            .setDescription("Members: " + client.users.size + "\n Servers: " + client.guilds.size + "\n Current Owner: ⅅᗅK❆Ͳᗅ👀#9830 \n Current Co-Owner: Bryan#3674");
+            .setDescription("Members: " + client.users.size + "\n Servers: " + client.guilds.size + "\n Current Owner: ⅅᗅK❆Ͳᗅ👀#9830 \n Current Co-Owner: Bryan#3674 \n Current server name: " + client.guild.name);
 
   message.channel.send({embed});
     }
