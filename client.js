@@ -18,7 +18,8 @@ const embede = new Discord.RichEmbed()
     .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
     .setTitle("Phrino · Error")
     .setDescription("This command is only availeable for Staff Members. :sob:")
-    .setColor("#FF0000");    
+    .setColor("#FF0000");
+  
 client.on('message', (message) => {
     if(message.content.startsWith(".dm ")) {   
     if (!admins.includes(message.author.id)) return message.channel.send({embede});
