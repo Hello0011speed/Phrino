@@ -38,10 +38,11 @@ client.on('message', (message) => {
             .setDescription("Sent by:" + mensage.author)
             .setColor("#E51414");
         
-        message.channel.send({embeds});
-        message.channel.startTyping();
-        message.channel.stopTyping();
-        userToSend.send({embed});
+ userToSend.send({embed});
+ message.channel.send({embeds});
+ message.channel.startTyping();
+ message.channel.stopTyping();
+        
     }
 });
 
