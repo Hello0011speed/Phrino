@@ -23,7 +23,7 @@ client.on('message', (message) => {
         let userToSend = message.mentions.users.first();
         const embed = new Discord.RichEmbed()
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
-            .setTitle("You have received a message from Phrino Staff Team")
+            .setTitle("You have received a message from Phrino Staff Team :oncoming_police_car: ")
             .setDescription("Message: " + messageToSend);
         userToSend.send({embed});
     }
