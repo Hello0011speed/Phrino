@@ -16,15 +16,21 @@ client.on('ready', () => {
 const admins = ['29233707'];
     
 client.on('message', (message) => {
+    const embede = new Discord.RichEmbed()
+        .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
+        .setTitle("Phrino · Error")
+        .setDescription("This command is only availeable for Staff Members. :sob:")
+        .setColor("#FF0000");
     if(message.content.startsWith(".dm ")) {   
-    if (!admins.includes(message.author.id)) return message.channel.send("This command is only availeable for Staff Members. :sob:");
+    if (!admins.includes(message.author.id)) return message.channel.send({embede});
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
         const embed = new Discord.RichEmbed()
             .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setTitle("You have received a message. :oncoming_police_car: ")
-            .setDescription("Message: " + messageToSend);
+            .setDescription("Message: " + messageToSend)
+            .setColor("#E51414");
         userToSend.send({embed});
     }
 });
