@@ -31,18 +31,8 @@ client.on('message', (message) => {
             .setTitle("You have received a message. :oncoming_police_car: ")
             .setDescription("Message: " + messageToSend)
             .setColor("#E51414");
-        
-        const embeds = new Discord.RichEmbed()
-            .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
-            .setTitle("Your message was sent!")
-            .setDescription("Sent by:" + mensage.author)
-            .setColor("#E51414");
-        
- userToSend.send({embed});
- message.channel.send({embeds});
- message.channel.startTyping();
- message.channel.stopTyping();
-        
+              
+            userToSend.send({embed});
     }
 });
 
