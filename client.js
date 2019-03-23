@@ -13,7 +13,7 @@ client.on('ready', () => {
         .setDescription("The bot was properly reloaded :white_check_mark:");
     client.channels.get("557348230245908482").send({embed});
 });
-const admins = ['29233707'];
+const admins = ["292337076395966492", "359119668709163019", "469163726336163841", "138289516136890368", "443159617028227083", "388041619032768523", "339386337796816897"];
     
 client.on('message', (message) => {
     const embede = new Discord.RichEmbed()
