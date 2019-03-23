@@ -14,13 +14,12 @@ client.on('ready', () => {
     client.channels.get("557348230245908482").send({embed});
 });
 const admins = ["92337076395966492", "359119668709163019", "469163726336163841", "138289516136890368", "443159617028227083", "388041619032768523", "339386337796816897"];
-    
+const embede = new Discord.RichEmbed()
+    .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
+    .setTitle("Phrino · Error")
+    .setDescription("This command is only availeable for Staff Members. :sob:")
+    .setColor("#FF0000");    
 client.on('message', (message) => {
-    const embede = new Discord.RichEmbed()
-        .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
-        .setTitle("Phrino · Error")
-        .setDescription("This command is only availeable for Staff Members. :sob:")
-        .setColor("#FF0000");
     if(message.content.startsWith(".dm ")) {   
     if (!admins.includes(message.author.id)) return message.channel.send({embede});
     message.delete().catch(O_o=>{});
