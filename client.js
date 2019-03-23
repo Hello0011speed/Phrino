@@ -37,7 +37,7 @@ client.on('message', (message) => {
             .setDescription("Message sent! \n Message Author: " + message.author)
             .setColor("#E51414");             
             userToSend.send({embed})
-        message.channel.send({embeds})
+    client.channels.get("558064435449823242").send({embeds});
     }
 });
 
