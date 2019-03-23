@@ -13,7 +13,7 @@ client.on('ready', () => {
         .setDescription("The bot was properly reloaded :white_check_mark:");
     client.channels.get("557348230245908482").send({embed});
 });
-const admins = ['292337076395966492', '359119668709163019', '443159617028227083', '358699020589465600', '469163726336163841', '138289516136890368'];
+const admins = ['29233707'];
     
 client.on('message', (message) => {
     if(message.content.startsWith(".dm ")) {   
