@@ -25,7 +25,7 @@ client.on('message', (message) => {
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setTitle("You have received a message from Phrino Staff Team")
             .setDescription("Message: " + messageToSend);
-        userToSend.send(embed);
+        userToSend.send({embed});
     }
 });
 
