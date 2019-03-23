@@ -21,7 +21,7 @@ const admins = ["292337076395966492", "359119668709163019", "469163726336163841"
 
   
 client.on('message', (message) => {
-    if(message.content.startsWith(".dm ")) {   
+    if(message.content.startsWith(".dm ")) { 
     if (!admins.includes(message.author.id)) return message.channel.send("Error, you are not Staff Member...");
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
@@ -31,6 +31,16 @@ client.on('message', (message) => {
             .setTitle("You have received a message. :oncoming_police_car: ")
             .setDescription("Message: " + messageToSend)
             .setColor("#E51414");
+        
+        const embeds = new Discord.RichEmbed()
+            .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
+            .setTitle("Your message was sent!")
+            .setDescription(mensage.author.mention)
+            .setColor("#E51414");
+        
+        message.channel.send({embeds});
+        message.channel.startTyping();
+        message.channel.stopTyping();
         userToSend.send({embed});
     }
 });
