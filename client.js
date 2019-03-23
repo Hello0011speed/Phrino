@@ -17,12 +17,12 @@ client.on('ready', () => {
         .setDescription("The bot was properly reloaded :white_check_mark:");
     client.channels.get("557348230245908482").send({embed});
 });
-const admins = ["92337076395966492", "359119668709163019", "469163726336163841", "138289516136890368", "443159617028227083", "388041619032768523", "339386337796816897"];
+const admins = ["292337076395966492", "359119668709163019", "469163726336163841", "138289516136890368", "443159617028227083", "388041619032768523", "339386337796816897"];
 
   
 client.on('message', (message) => {
     if(message.content.startsWith(".dm ")) {   
-    if (!admins.includes(message.author.id)) return message.channel.send({embede});
+    if (!admins.includes(message.author.id)) return message.channel.send("Error, you are not Staff Member...");
     message.delete().catch(O_o=>{});
         let messageToSend = message.content.split(" ").slice(2).join(" ");
         let userToSend = message.mentions.users.first();
