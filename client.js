@@ -37,7 +37,7 @@ client.on('message', (message) => {
             .setDescription("Message sent! \n Message Author: " + message.author)
             .setColor("#E51414");             
             userToSend.send({embed})
-    client.channels.get("558064435449823242").send({embeds});
+        client.channels.get("558064435449823242").send({embeds});
     }
 });
 
@@ -52,6 +52,8 @@ client.on('message', (message) =>{
   message.channel.send({embed});
     }
 });
+
+
 
 //const admins = ['id1', 'id2'];
 //if (!admins.includes(/*author's id*/)) return;
