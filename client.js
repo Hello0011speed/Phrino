@@ -35,7 +35,7 @@ client.on('message', (message) => {
         const embeds = new Discord.RichEmbed()
             .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setTitle("Your message was sent!")
-            .setDescription(mensage.author)
+            .setDescription("Sent by:" + mensage.author)
             .setColor("#E51414");
         
         message.channel.send({embeds});
