@@ -61,9 +61,13 @@ client.on('message', (message) =>{
             .setColor("#E51414")
             .setDescription("Phrino is a bot that helps you with the moderation of your server, we are in BETA phase, so sometimes the bot will not be online which means that we are modifying or configuring it. \n \n **COMMANDS:** \n .stats | It shows you information about our bot. \n .dm | This command is only allowed for staff, at the moment.");
 
-  message.channel.send({embed});
+client.channels.send({
+   embed: embed
+});
     }
 });
+
+
 
 
 
