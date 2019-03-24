@@ -70,7 +70,7 @@ client.on('message', (message) => {
         const embed = new Discord.RichEmbed()
             .setTitle("Phrino · Invite")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
-            .setColor("#E51414")
+            .setColor("#E51414");
         const embedd = new Discord.RichEmbed()
             .setTitle("Phrino · Invite2")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
