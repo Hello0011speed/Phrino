@@ -55,13 +55,13 @@ client.on('message', (message) =>{
 
 client.on('message', (message) =>{
     if(message.content.startsWith(".cmds")) {
-        const embed = new Discord.RichEmbed()
+        const embedd = new Discord.RichEmbed()
             .setTitle("Phrino · Commands")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
             .setColor("#E51414")
             .setDescription("Phrino is a bot that helps you with the moderation of your server, we are in BETA phase, so sometimes the bot will not be online which means that we are modifying or configuring it. \n \n **COMMANDS:** \n .stats | It shows you information about our bot. \n .dm | This command is only allowed for staff, at the moment.");
 
- message.channels.send({embed: embed});
+ message.channels.send({embed: embedd});
     }
 });
 
