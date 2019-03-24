@@ -78,9 +78,11 @@ client.on('message', (message) => {
 });
 const admins = ["292337076395966492", "359119668709163019", "469163726336163841", "138289516136890368", "443159617028227083", "388041619032768523", "339386337796816897", "463247705527812097"];
 
+  
 client.on('message', (message) => {
-    if(message.content.startsWith(".verify")) {
+    if(message.content.startsWith(".dm ")) { 
     if (!admins.includes(message.author.id)) return message.channel.send("Error, you are not Staff Member...");
+    message.delete().catch(O_o=>{});
         const embed = new Discord.RichEmbed()
             .setTitle("Phrino · Verified")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
@@ -99,3 +101,6 @@ client.on('message', (message) => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
+
+
+//.setDescription(message.author + " was verified as Phrino Staff members! :white_check_mark:");
