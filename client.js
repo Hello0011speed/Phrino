@@ -73,6 +73,12 @@ client.on('message', (message) => {
             .setColor("#E51414")
             .setDescription("Invite link: https://discordapp.com/oauth2/authorize?client_id=529521711348056065&scope=bot&permissions=8 \n \n Discord server link: https://discord.gg/XqUa92C");
   message.channel.send({embed});
+        const embedd = new Discord.RichEmbed()
+            .setTitle("Phrino · Invite2")
+            .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
+            .setColor("#E51414")
+            .setDescription("Invite link: https://discordapp.com/oauth2/authorize?client_id=529521711348056065&scope=bot&permissions=8 \n \n Discord server link: https://discord.gg/XqUa92C");
+  message.channel.send({embedd});
     }
 });
 
