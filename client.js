@@ -80,7 +80,7 @@ const admins = ["292337076395966492", "359119668709163019", "469163726336163841"
 
 client.on('message', (message) => {
     if(message.content.startsWith(".verify")) {
-        if (!admins.includes(message.author.id)) return message.channel.send("Error, you are not Staff Member...");
+    if (!admins.includes(message.author.id)) return message.channel.send("Error, you are not Staff Member...");
         const embed = new Discord.RichEmbed()
             .setTitle("Phrino · Verified")
             .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
