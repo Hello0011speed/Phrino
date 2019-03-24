@@ -1,2 +1,1 @@
-# Phrino
-Phrino configuration!
+# Phrino Development
