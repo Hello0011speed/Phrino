@@ -76,6 +76,20 @@ client.on('message', (message) => {
 
     }
 });
+const admins = ["292337076395966492", "359119668709163019", "469163726336163841", "138289516136890368", "443159617028227083", "388041619032768523", "339386337796816897", "463247705527812097"];
+
+client.on('message', (message) => {
+    if(message.content.startsWith(".verify")) {
+        if (!admins.includes(message.author.id)) return message.channel.send("Error, you are not Staff Member...");
+        const embed = new Discord.RichEmbed()
+            .setTitle("Phrino · Verified")
+            .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
+            .setColor("#E51414")
+            .setDescription(message.author + " was verified as Phrino Staff members! :white_check_mark:");
+  message.channel.send({embed});
+
+    }
+});
 
 
 // Phrino is a bot that helps you with the moderation of your server, we are in BETA phase, so sometimes the bot will not be online which means that we are modifying or configuring it. \n \n **COMMANDS:** \n .stats | It shows you information about our bot. \n .dm | This command is only allowed for staff, at the moment.
