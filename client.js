@@ -65,6 +65,15 @@ client.on('message', (message) =>{
     }
 });
 
+client.on('message', (message) => {
+    if(message.content.startsWith(".invite")) {
+        const embed = new Discord.RichEmbed()
+            .setTitle("Phrino · Invite")
+            .setAuthor("Phrino", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
+            .setColor("#E51414")
+            .setDescription("Invite link: https://discordapp.com/oauth2/authorize?client_id=529521711348056065&scope=bot&permissions=8 \n Discord server link: https://discord.gg/XqUa92C")
+    }
+});
 
 
 // Phrino is a bot that helps you with the moderation of your server, we are in BETA phase, so sometimes the bot will not be online which means that we are modifying or configuring it. \n \n **COMMANDS:** \n .stats | It shows you information about our bot. \n .dm | This command is only allowed for staff, at the moment.
