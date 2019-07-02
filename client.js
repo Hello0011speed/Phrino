@@ -1,21 +1,7 @@
-
-// This will check if the node version you are running is the required
-// Node version, if it isn't it will throw the following error to inform
-// you.
-if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node 8.0.0 or higher is required. Update Node on your system.");
-
-// Load up the discord.js library
-const Discord = require("discord.js");
-// We also load the rest of the things we need in this file:
-const { promisify } = require("util");
-const readdir = promisify(require("fs").readdir);
-const Enmap = require("enmap");
-
-// This is your client. Some people call it `bot`, some people call it `self`,
-// some might call it `cootchie`. Either way, when you see `client.something`,
-// or `bot.something`, this is what we're refering to. Your client.
+const Discord = require('discord.js');
 const client = new Discord.Client();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Here we load the config file that contains our token and our prefix values.
 client.config = require("./config.js");
@@ -83,6 +69,8 @@ const init = async () => {
 init();
 
 =======
+=======
+>>>>>>> parent of ed0e03a... mn
 const embede = new Discord.RichEmbed()
     .setAuthor("Phrino Staff Team", "https://cdn.discordapp.com/icons/528818044668215299/6d1ccd655df1c562ef4f43835597fe10.png?")
     .setTitle("Phrino · Error")
@@ -160,6 +148,10 @@ client.on('message', (message) => {
 });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of ed0e03a... mn
 // Phrino is a bot that helps you with the moderation of your server, we are in BETA phase, so sometimes the bot will not be online which means that we are modifying or configuring it. \n \n **COMMANDS:** \n .stats | It shows you information about our bot. \n .dm | This command is only allowed for staff, at the moment.
 
 //const admins = ['id1', 'id2'];
@@ -167,4 +159,10 @@ client.on('message', (message) => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
+<<<<<<< HEAD
 >>>>>>> parent of ee85d78... Update client.js
+=======
+
+
+//.setDescription(message.author + " was verified as Phrino Staff members! :white_check_mark:");
+>>>>>>> parent of ed0e03a... mn
