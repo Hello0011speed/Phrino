@@ -1,81 +1,113 @@
-// This will check if the node version you are running is the required
-// Node version, if it isn't it will throw the following error to inform
-// you.
-if (Number(process.version.slice(1).split(".")[0]) < 8) throw new Error("Node 8.0.0 or higher is required. Update Node on your system.");
+const Discord = require('discord.js');
+const fs = require('fs');
+const config = require('./config.json');
+const chalk = require('chalk');
 
-// Load up the discord.js library
-const Discord = require("discord.js");
-// We also load the rest of the things we need in this file:
-const { promisify } = require("util");
-const readdir = promisify(require("fs").readdir);
-const Enmap = require("enmap");
-
-// This is your client. Some people call it `bot`, some people call it `self`,
-// some might call it `cootchie`. Either way, when you see `client.something`,
-// or `bot.something`, this is what we're refering to. Your client.
+// create a new discord client
 const client = new Discord.Client();
+const cooldowns = new Discord.Collection();
+client.commands = new Discord.Collection();
+const commandFlies = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-// Here we load the config file that contains our token and our prefix values.
-client.config = require("./config.js");
-// client.config.token contains the bot's token
-// client.config.prefix contains the message prefix
+for (const file of commandFlies) {
+    const command = require(`./commands/${file}`);
 
-// Require our logger
-client.logger = require("./modules/Logger");
+    // set a new item in the Collection
+    // with the key as the command name and the value as the exported value
+    client.commands.set(command.name, command);
+}
 
-// Let's start by getting some useful functions that we'll use throughout
-// the bot, like logs and elevation features.
-require("./modules/functions.js")(client);
+// when the client is ready, run this code
+// this event will trigger whenever your bot:
+// - finishes logging in
+// - reconnects after disconnecting
+client.on('ready', () => {
+    console.log('Ready!');
+});
 
-// Aliases and commands are put in collections where they can be read from,
-// catalogued, listed, etc.
-client.commands = new Enmap();
-client.aliases = new Enmap();
-
-// Now we integrate the use of Evie's awesome Enhanced Map module, which
-// essentially saves a collection to disk. This is great for per-server configs,
-// and makes things extremely easy for this purpose.
-client.settings = new Enmap({name: "settings"});
-
-// We're doing real fancy node 8 async/await stuff here, and to do that
-// we need to wrap stuff in an anonymous function. It's annoying but it works.
-
-const init = async () => {
-
-  // Here we load **commands** into memory, as a collection, so they're accessible
-  // here and everywhere else.
-  const cmdFiles = await readdir("./commands/");
-  client.logger.log(`Loading a total of ${cmdFiles.length} commands.`);
-  cmdFiles.forEach(f => {
-    if (!f.endsWith(".js")) return;
-    const response = client.loadCommand(f);
-    if (response) console.log(response);
-  });
-
-  // Then we load events, which will include our message and ready event.
-  const evtFiles = await readdir("./events/");
-  client.logger.log(`Loading a total of ${evtFiles.length} events.`);
-  evtFiles.forEach(file => {
-    const eventName = file.split(".")[0];
-    client.logger.log(`Loading Event: ${eventName}`);
-    const event = require(`./events/${file}`);
-    // Bind the client to any event, before the existing arguments
-    // provided by the discord.js event. 
-    // This line is awesome by the way. Just sayin'.
-    client.on(eventName, event.bind(null, client));
-  });
-
-  // Generate a cache of client permissions for pretty perm names in commands.
-  client.levelCache = {};
-  for (let i = 0; i < client.config.permLevels.length; i++) {
-    const thisLevel = client.config.permLevels[i];
-    client.levelCache[thisLevel.name] = thisLevel.level;
-  }
-
-  // Here we login the client.
-  client.login(process.env.BOT_TOKEN);
-
-// End top-level async/await function.
+const events = {
+	MESSAGE_REACTION_ADD: 'messageReactionAdd',
+	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
 };
 
-init();
+client.on('raw', async event => {
+	if (!events.hasOwnProperty(event.t)) return;
+
+	const { d: data } = event;
+	const user = client.users.get(data.user_id);
+	const channel = client.channels.get(data.channel_id) || await user.createDM();
+
+	if (channel.messages.has(data.message_id)) return;
+
+	const message = await channel.messages.fetch(data.message_id);
+	const emojiKey = data.emoji.id || data.emoji.name;
+	const reaction = message.reactions.get(emojiKey) || message.reactions.add(data);
+
+	client.emit(events[event.t], reaction, user);
+	if (message.reactions.size === 1) message.reactions.delete(emojiKey);
+});
+
+client.on('messageReactionAdd', (reaction, user) => {
+	console.log(`${user.username} reacted with "${reaction.emoji.name}".`);
+});
+
+client.on('messageReactionRemove', (reaction, user) => {
+	console.log(`${user.username} removed their "${reaction.emoji.name}" reaction.`);
+});
+
+client.on('message', message => {
+    const args = message.content.slice(config.prefix.length).split(/ +/);
+    const commandName = args.shift().toLowerCase();
+
+    const command = client.commands.get(commandName) ||
+                    client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+
+    if (!command) return;
+
+    if (command.args && !args.length) {
+        let reply = `You didn't provide any arguments, ${message.author}!`;
+
+        if (command.usage) {
+            reply += `\nThe proper usage would be: \`${config.prefix}${command.name} ${command.usage}\``;
+        }
+
+        return message.channel.send(reply);
+    }
+
+    if (command.guildOnly && message.channel.type !== 'text') {
+        return message.replay('I can\'t execute the command inside DMS!');
+    }
+
+    if (!cooldowns.has(command.name)) {
+        cooldowns.set(command.name, new Discord.Collection());
+    }
+
+    const now = Date.now();
+    const timestamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || 3) * 1000;
+
+    if (!timestamps.has(message.author.id)) {
+        timestamps.set(message.author.id, now);
+        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+    }
+    else {
+        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+        if (now < expirationTime) {
+            const timeLeft = (expirationTime - now) / 1000;
+            return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command. `);
+        }
+
+        timestamps.set(message.author.id, now);
+        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+    }
+    try {
+        command.execute(client, api, config, message, args);
+    }
+    catch (error) {
+        console.error(error);
+        message.reply('there was an error trying to execute the command!');
+    }
+});
+
+client.login(process.env.BOT_TOKEN);
