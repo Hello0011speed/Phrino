@@ -17,7 +17,7 @@
     "cryptiles": "^4.1.2",
     "discord.js": "^11.3.2",
     "eslint": "^5.1.0",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "ffmpeg-binaries": "^4.0.0",
     "hawk": "^7.0.7",
     "hoek": "^5.0.3",
